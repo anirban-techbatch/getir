@@ -11,7 +11,16 @@ let validations = {
         "code": 2,
         "message": "Invalid Date Format"
       });
-    } else {
+    }else if((typeof req.body.minCount !== 'number')||(typeof req.body.maxCount !== 'number')){
+
+      res.send({
+        "code": 2,
+        "message": "Invalid Number Format"
+      });
+
+    }
+    
+    else {
       next();
     }
 
